@@ -13,6 +13,7 @@ jobs:
         run: echo ${pwd}
       - name: Pull ZAP Idocker Image
         run: docker pull owasp/zap2docker-weekly
-      - name: |
+      - name: Run ZAP SCcan 
+        run: |
           docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t http://cyberpupps.com -r report.html
     
