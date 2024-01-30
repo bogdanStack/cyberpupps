@@ -4,13 +4,13 @@ on:
  workflow_dispatch:
 jobs:
   zap_scan:
-    runs-on: ubuntu-latest
-    name: Scan the webapplication
+    runs-on: ubuntu:20.04 
+    name: ZAP Scan
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Pull ZAP Idocker Image
+      - name: Docker Pull
         run: docker pull owasp/zap2docker-stable
-      - name: Run ZAP SCcan 
+      - name: run scan 
         run: |
-          docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t http://cyberpupps.com -g gen.conf -r testreport.html 
+          docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t http://cyberpupps.com -g gen.conf -r report.html 
