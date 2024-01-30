@@ -9,10 +9,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Log current directory
-        run: echo ${pwd}
       - name: Pull ZAP Idocker Image
-        run: docker pull owasp/zap2docker-weekly
+        run: docker pull owasp/zap2docker-stable
       - name: Run ZAP SCcan 
         run: |
          sudo docker run -v $(pwd):/zap/wrk:rw -t owasp/zap2docker-stable zap-baseline.py -t http://cyberpupps.com -r report.html
