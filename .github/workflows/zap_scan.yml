@@ -11,7 +11,7 @@ jobs:
        uses: zaproxy/action-baseline@v0.11.0
        with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          docker_name: 'owasp/zap2docker-live'
+          docker_name: 'osecurecodebox/zap-weekly'
           target: 'https://www.cyberpupps.com'
 
 
