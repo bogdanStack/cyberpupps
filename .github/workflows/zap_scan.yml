@@ -14,6 +14,6 @@ jobs:
         run: docker pull owasp/zap2docker-stable
       - name: Run ZAP SCcan 
         run: |
-         docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable touch /zap/wrk/test.txt
+         docker run -v $(pwd):/zap/wrk/:rw -t ubuntu:20.04 touch /zap/wrk/test.txt
 
          
