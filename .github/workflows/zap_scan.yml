@@ -6,7 +6,7 @@ on:
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
-    name: Scan the webapplication
+    name: ZAP Scan
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -14,5 +14,5 @@ jobs:
         run: docker pull owasp/zap2docker-stable
       - name: Run ZAP SCcan 
         run: |
-         mkdir /zap/wrk
-         sudo docker run -v $(pwd):/zap/wrk:rw -t owasp/zap2docker-stable zap-baseline.py -t http://cyberpupps.com -r report.html
+         'mkdir /zap/wrk
+         sudo docker run -v $(pwd):/zap/wrk:rw -t owasp/zap2docker-stable zap-baseline.py -t http://cyberpupps.com -r report.html'
