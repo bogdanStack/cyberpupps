@@ -14,4 +14,6 @@ jobs:
         run: docker pull owasp/zap2docker-stable
       - name: Run ZAP SCcan 
         run: |
-         sudo docker run -v $(pwd):/zap/wrk:rw -t owasp/zap2docker-stable zap-baseline.py -t http://cyberpupps.com -r report.html
+         docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable touch /zap/wrk/test.txt
+
+         
