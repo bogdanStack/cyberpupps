@@ -13,6 +13,6 @@ jobs:
       - name: Pull ZAP Idocker Image
         run: docker pull owasp/zap2docker-stable
       - name: Run ZAP SCcan 
-        run: docker run -v $(pwd):/zap/wrk:rw --user root -t owasp/zap2docker-stable zap-baseline.py -t http://testphp.vulnweb.com/-r /zap/wrk/testPhp_report.html
+        run: docker run -v $(pwd):/zap/wrk:rw --user root -t owasp/zap2docker-stable zap-baseline.py -t http://testphp.vulnweb.com -r /zap/wrk/testPhp_report.html
 
          
