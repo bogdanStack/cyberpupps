@@ -9,7 +9,7 @@ jobs:
     name: ZAP Scan
     steps:
       - name: Run ZAP Scan
-        uses: zaproxy/action-full-scan@v0.9.0
+        uses: zaproxy/action-api-scan@v0.6.0
         with:
           target: "https://cyberpupps.com"
          
