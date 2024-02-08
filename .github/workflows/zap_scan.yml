@@ -8,11 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     name: ZAP Scan
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Pull ZAP Idocker Image
-        run: docker pull owasp/zap2docker-stable
-      - name: Run ZAP SCcan 
-        run: docker run -v $(pwd):/zap/wrk:rw --user root -t owasp/zap2docker-stable zap-baseline.py -t http://cyberpupps.com -r testPhp_report.html
-
+      - name: Run ZAP Scan
+        uses: zaproxy/action-full-scan@v0.1.0
+        with:
+          target: "https://stackfactor.ai"
          
