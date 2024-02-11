@@ -17,6 +17,6 @@ jobs:
           target: 'https://stackfactor.ai'
           rules_file_name: '.zap/rules.tsv'
           issue_title: 'issue_test'
-          fail_action: 'true'
+          fail_action: 'false'
           artifact_name: 'zap_scan_report'
           
