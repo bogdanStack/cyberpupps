@@ -14,4 +14,4 @@ jobs:
       - name: executePWD
         run: pwd
       - name: Run ZAP SCcan 
-        run: docker run -v /home/runner/work/cyberpupps/cyberpupps:/zap/wrk:rw --user root -t owasp/zap2docker-stable zap-baseline.py -t http://cisco.com -r testPhp_report.html
+        run: docker run -v /home/runner/work/cyberpupps/cyberpupps:/zap/wrk:rw --user root -t owasp/zap2docker-stable zap-baseline.py -t https://stackfactor.ai -r testPhp_report.html
