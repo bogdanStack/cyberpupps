@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Pull ZAP Idocker Image
+      - name: Pull ZAP Docker Image
         run: docker pull ghcr.io/zaproxy/zaproxy:stable
-      - name: Run ZAP SCcan 
-        run: docker run -v $(pwd):/zap/wrk/:rw --user root -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://stackfactor.ai -g gen.conf -r testreport.html
+      - name: Run ZAP Scan
+        run: docker run -v ${{ github.workspace }}:/zap/wrk/:rw --user root -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://cyberpupps.com -c /zap/wrk/rules.tsv
