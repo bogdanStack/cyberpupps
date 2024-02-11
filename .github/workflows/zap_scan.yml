@@ -10,4 +10,4 @@ jobs:
       - name: Pull ZAP Docker Image
         run: docker pull ghcr.io/zaproxy/zaproxy:stable
       - name: Run ZAP Scan
-        run: docker run -v ${{ github.workspace }}:/zap/wrk/:rw --user root -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://cyberpupps.com -c ${{ github.workspace }}/.zap/rules.tsv
+        run: docker run -v ${{ github.workspace }}:/zap/wrk/:rw --user root -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://cyberpupps.com -c /zap/wrk/rules.tsv
