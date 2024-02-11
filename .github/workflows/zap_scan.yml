@@ -14,4 +14,4 @@ jobs:
       - name: Run ZAP SCcan 
         run: docker run -v /home/runner/work/cyberpupps/cyberpupps:/zap/wrk:rw --user root -t owasp/zap2docker-live zap-baseline.py -t http://testphp.vulnweb.com/ -r testPhp_report.html
       - name: List directory
-        run: ls -l /zap/wrk
+        run: $(pwd); cd $(pwd); ls -la
