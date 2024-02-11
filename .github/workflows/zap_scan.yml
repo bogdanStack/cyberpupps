@@ -1,4 +1,3 @@
-
 name: OWASP ZAP
 on: 
  push:
@@ -8,8 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     name: ZAP Scan
     steps:
-      - name: Run ZAP Scan
-        uses: zaproxy/action-api-scan@v0.6.0
-        with:
-          target: "https://cyberpupps.com"
-         
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Pull ZAP Idocker Image
+        run: docker pull owasp/zap2docker-stable
+	     - name: executePWD
+		      run: pwd
+      - name: Run ZAP SCcan 
+        run: docker run -v $(pwd):/zap/wrk:rw --user root -t owasp/zap2docker-stable zap-baseline.py -t http://testphp.vulnweb.com -r testPhp_report.html
