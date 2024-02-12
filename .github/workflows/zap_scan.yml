@@ -5,8 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     name: ZAP Scan
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Pull ZAP Docker Image
         run: docker pull ghcr.io/zaproxy/zaproxy:stable
       - name: Run ZAP Scan
