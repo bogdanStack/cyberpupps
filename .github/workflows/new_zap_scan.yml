@@ -1,0 +1,27 @@
+name: NEW OWASP ZAP
+
+on:
+  push:
+    branches: [main] 
+  workflow_dispatch:
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: ZAP Scan
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Pull ZAP Docker Image
+        run: docker pull ghcr.io/zaproxy/zaproxy:stable
+      - name: Run ZAP Scan
+        run: |
+          mkdir zap_wrk
+          docker run -v ${{ github.workspace }}/zap_wrk:/zap/wrk -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://qa.stackfactor.ai -c /zap/wrk/rules.tsv -r zap_wrk/zap_report.html
+      - name: Upload ZAP Report as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZAP Report
+          path: zap_wrk/zap_report.html
+          retention-days: 30
+          overwrite: true
