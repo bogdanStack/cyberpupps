@@ -9,3 +9,7 @@
 10109	INFO	(Modern Web Application)
 10202	INFO	(Absence of Anti-CSRF Tokens)
 90003	INFO	(Sub Resource Integrity Attribute Missing)
+10020	INFO	(Missing Anti-clickjacking Header)
+10021	INFO	(X-Content-Type-Options Header Missing)
+10036	INFO	(Server Leaks Version Information via "Server" HTTP Response Header Field)
+10110	INFO	(Dangerous JS Functions)
