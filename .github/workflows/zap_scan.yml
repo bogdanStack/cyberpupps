@@ -6,7 +6,7 @@ jobs:
     name: ZAP Scan
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Pull ZAP Docker Image
         run: docker pull ghcr.io/zaproxy/zaproxy:stable
       - name: Run ZAP Scan
@@ -16,5 +16,5 @@ jobs:
         with:
           name: ZAP Report
           path: zap_report.html
-          retention-days: 30
+
 
