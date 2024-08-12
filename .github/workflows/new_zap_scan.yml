@@ -1,4 +1,4 @@
-name:NEW OWASP ZAP
+name: NEW OWASP ZAP
 on: [workflow_dispatch]
 jobs:
   zap_scan:
