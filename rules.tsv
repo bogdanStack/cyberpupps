@@ -10,7 +10,3 @@
 10109	IGNORE	(Modern Web Application)
 10202	IGNORE	(Absence of Anti-CSRF Tokens)
 90003	IGNORE	(Sub Resource Integrity Attribute Missing)
-10020   IGNORE  (Missing Anti-clickjacking Header)
-10021   IGNORE  (X-Content-Type-Options Header Missing)
-10036   IGNORE  (Server Leaks Version Information via "Server" HTTP Response Header Field)
-10110   IGNORE  (Dangerous JS Functions)
