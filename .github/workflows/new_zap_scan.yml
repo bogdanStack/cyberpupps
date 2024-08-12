@@ -1,9 +1,5 @@
 name: NEW OWASP ZAP
-
-on:
-  push:
-    branches: [main] 
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
   zap_scan:
