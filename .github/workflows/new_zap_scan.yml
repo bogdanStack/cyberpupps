@@ -1,20 +1,19 @@
 name: NEW OWASP ZAP
 on: [workflow_dispatch]
+
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
-    name: ZAP Scan
+    name: Scan the webapplication
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Pull ZAP Docker Image
-        run: docker pull ghcr.io/zaproxy/zaproxy:stable
-      - name: Create ZAP Working Directory (with write access)
-        run: mkdir -p zap_wrk
-      - name: test file
-        run: echo "test file" > zap_report.html
-      - name: upload ZAP Report as Artifact
-        uses: actions/upload-artifact@v4
         with:
-          name: ZAP Report
-          path: zap_report.html
+          ref: main
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.10.0
+        with:
+          docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
+          target: 'https://qa.stackfactor.ai'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
