@@ -18,4 +18,4 @@ jobs:
           target: 'https://qa.stackfactor.ai'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
-          #fail_action: false
+          fail_action: false
