@@ -13,7 +13,7 @@ jobs:
       - name: Run ZAP Scan
         run: |
           mkdir zap_wrk
-          docker run -v ${{ github.workspace }}/zap_wrk:/zap/wrk -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://qa.stackfactor.ai -c new_rules.tsv -r zap_wrk/zap_report.html
+          docker run -v ${{ github.workspace }}:/zap/wrk -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://qa.stackfactor.ai -c new_rules.tsv -r zap_wrk/zap_report.html
       - name: Upload ZAP Report as Artifact
         uses: actions/upload-artifact@v4
         with:
