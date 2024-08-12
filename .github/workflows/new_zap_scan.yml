@@ -12,7 +12,7 @@ jobs:
       - name: Create ZAP Working Directory (with write access)
         run: mkdir -p zap_wrk
       - name: Run ZAP Scan
-        run: docker run -v ${{ github.workspace }}:/zap/wrk/:rw --user root -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://csapi.ai -c ${{ github.workspace }}/rules.tsv -r zap_wrk/zap_report.html
+        run: docker run -v ${{ github.workspace }}/zap_wrk:/zap/wrk/:rw --user root -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://csapi.ai -c ${{ github.workspace }}/zap_wrk/rules.tsv -r zap_wrk/zap_report.html
       - name: upload ZAP Report as Artifact
         uses: actions/upload-artifact@v4
         with:
